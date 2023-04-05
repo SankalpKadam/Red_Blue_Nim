@@ -90,10 +90,10 @@ def Make_Computer_Move(current_state, move_to_be_done):
 
 def Check_If_Game_Over(game_state, player):
     if (game_state.red_stones == 0 or game_state.blue_stones == 0) and player == "Human":
-        print("Computer won")
+        print(f"Computer won with score : {game_state.red_stones*2 + game_state.blue_stones*3}")
         return True
     elif (game_state.red_stones == 0 or game_state.blue_stones == 0) and player == "Computer":
-        print("Human Wins")
+        print(f"Human Wins with score : {game_state.red_stones*2 + game_state.blue_stones*3}")
         return True
     else:
         return False
