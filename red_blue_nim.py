@@ -1,4 +1,4 @@
-#References - https://www.geeksforgeeks.org/python-infinity/ , https://www.youtube.com/watch?v=zp3VMe0Jpf8
+#References - https://www.geeksforgeeks.org/python-infinity/ , https://www.youtube.com/watch?v=zp3VMe0Jpf8 , https://crystal.uta.edu/~gopikrishnav/classes/common/4308_5360/slides/Game_Search.pdf
 import argparse
 
 # Each node in tree is generated using this class.
@@ -20,9 +20,9 @@ def utility_function(state, caller):
 #Generates successors for current state.
 def possible_actions(state):
     possible_states = list()
-    take_from_red = State(state.red_stones-1,state.blue_stones,"Take from red")
+    take_from_red = State(state.red_stones-1,state.blue_stones,"Take from red")#Creates new node using the State class.
     possible_states.append(take_from_red)
-    take_from_blue = State(state.red_stones,state.blue_stones-1,"Take from blue")
+    take_from_blue = State(state.red_stones,state.blue_stones-1,"Take from blue")#Creates new node using the State class.
     possible_states.append(take_from_blue)
     return possible_states
 
@@ -165,12 +165,14 @@ if __name__ == "__main__":
     parser.add_argument("red_stones", type=int)
     parser.add_argument("blue_stones", type=int)
     parser.add_argument("-p", "--player", default="computer",
-                        help="Use this option to specify who plays first")
+                        help="Use this option to specify who plays first", type=str)
     commandline_args = parser.parse_args()
     initial_state=State(commandline_args.red_stones,commandline_args.blue_stones,None)
     print("---------------------------------------------")
     print(f"Initial State is : Red {initial_state.red_stones} Blue {initial_state.blue_stones}\n")
     if commandline_args.player.lower() == "computer":
         computer_plays_first(initial_state)
-    else:
+    elif commandline_args.player.lower() == "human":
         human_plays_first(initial_state)
+    else:
+        print(f"The first player provided was '{commandline_args.player}' it can only be either a 'computer' or 'human'")

@@ -9,12 +9,19 @@ Major functions in code :
     3] Check_If_Game_Over - Checks if after making a move the game ends or not.
     4] utility_function - Gives utility values for terminal states.
     5] __main__ - Takes arguments provided in the command line invocation to determine red and blue stones, first player. Calls necessary function depending on the parameters provided.
+
 How to pass arguments through command line invocation?
     The program uses argparse to parse all the provided arguments in the command line.
     The program needs 2 necessary parameters i.e red and blue marbles so pass them as it is.
     For optional argument i.e first_player use the "-p" flag.
     A sample invocation through command line where you want to start the game with 5 red and 4 blue marbles and human plays first is : python3 red_blue_nim.py 5 4 -p human
 
+How program runs?
+    The program alternates between human move and computer move. Depending on the parameter given by the user either the computer starts first or human plays first.
+    When its the human's turn to pick a marble, provide either "red" or "blue" as input when the prompt asks to.
+    After human's move the state of the game is updated and the computer takes this updated state and performs minmax with alpha beta pruning to determine the best possible move.
+    The computer's decided move is performed and the game state is updated which is then returned to the human and the human performs its move.
+    This continues until game ends.
 
 How to RUN the code - 
 
