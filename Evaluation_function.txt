@@ -1,3 +1,0 @@
-Requirements -
-Check if their are even no. of stones left in either of the bowls.
-Depends on player whose turn it is to play at that depth.
